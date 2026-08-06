@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico */
+  /* Fondo atmosférico PC */
   .hero {
     position: relative;
     width: 100%;
@@ -209,20 +209,23 @@
     flex-shrink: 0;
   }
 
-  /* CUADRO COMPACTO "Solo disponible en PC" (SOLO SE MUESTRA EN TELÉFONOS) */
+  /* CUADRO COMPACTO "Solo disponible en PC" CON EL NUEVO BACKGROUND (SOLO SE MUESTRA EN TELÉFONOS) */
   .mobile-card {
     display: none; 
-    background: rgba(254, 184, 255, 0.03);
-    border: 1px solid rgba(254, 184, 255, 0.2);
+    position: relative;
+    background: linear-gradient(rgba(11, 9, 15, 0.82), rgba(11, 9, 15, 0.9)),
+                url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
+    border: 1px solid rgba(254, 184, 255, 0.3);
     padding: 14px 18px;
-    border-radius: 12px;
+    border-radius: 14px;
     max-width: 280px;
     width: 100%;
     backdrop-filter: blur(12px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
     align-items: center;
     gap: 12px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     text-align: left;
   }
 
@@ -230,8 +233,8 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: rgba(254, 184, 255, 0.08);
-    border: 1px solid rgba(254, 184, 255, 0.25);
+    background: rgba(254, 184, 255, 0.1);
+    border: 1px solid rgba(254, 184, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -315,30 +318,59 @@
     text-transform: uppercase;
   }
 
-  /* REGLAS EXACTAS PARA DISPOSITIVOS */
+  /* REGLAS EXACTAS PARA DISPOSITIVOS (Móvil optimizado hacia arriba) */
   @media (max-width: 900px) {
     .btn-adventure {
-      display: none !important; /* Oculta el botón de aventura en teléfonos */
+      display: none !important; 
     }
     .mobile-card {
-      display: flex !important; /* Muestra el cuadro en teléfonos */
+      display: flex !important; 
     }
     .hero {
-      height: auto;
-      min-height: 100vh;
-      padding: 40px 20px;
+      height: 100vh;
+      justify-content: flex-start; /* Eleva todo el contenido hacia arriba en teléfonos */
+      padding: 30px 15px;
+      overflow-y: auto;
+    }
+    .hero-content {
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 10px 0;
+    }
+    .top-buttons-container {
+      margin-bottom: 16px;
+    }
+    .badge-top {
+      margin-bottom: 18px;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 12vw, 4.5rem);
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      margin-bottom: 18px;
     }
     .stats-container {
       gap: 30px;
+      margin-top: 5px;
+    }
+    .stat-value {
+      font-size: 2.2rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
     }
   }
 
   @media (min-width: 901px) {
     .btn-adventure {
-      display: inline-flex !important; /* Muestra el botón de aventura en PC */
+      display: inline-flex !important; 
     }
     .mobile-card {
-      display: none !important; /* Oculta el cuadro en PC */
+      display: none !important; 
     }
   }
 </style>
@@ -418,4 +450,5 @@
   </script>
 
 </body>
-</html>
+            </html>
+            
