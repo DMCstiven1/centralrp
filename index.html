@@ -26,20 +26,20 @@
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    min-height: 100vh;
+    height: 100vh;
   }
 
   /* Fondo atmosférico */
   .hero {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 30px 15px;
+    padding: 40px 20px;
     background: linear-gradient(rgba(11, 9, 15, 0.82), rgba(11, 9, 15, 0.9), rgba(11, 9, 15, 0.96)),
                 url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
   }
@@ -69,14 +69,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 
   /* BOTONES SUPERIORES (Play, Discord, TikTok) */
   .top-buttons-container {
     display: flex;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 24px;
     z-index: 10;
   }
 
@@ -84,8 +83,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: rgba(254, 184, 255, 0.05);
     color: var(--accent);
@@ -105,8 +104,8 @@
   }
 
   .btn-action svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     fill: currentColor;
     flex-shrink: 0;
   }
@@ -115,15 +114,15 @@
   .badge-top {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: rgba(254, 184, 255, 0.07);
     border: 1px solid rgba(254, 184, 255, 0.25);
-    padding: 8px 22px;
+    padding: 10px 26px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     letter-spacing: 0.02em;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -136,7 +135,7 @@
   }
 
   .badge-top .dot {
-    width: 8px; height: 8px; background: var(--success);
+    width: 9px; height: 9px; background: var(--success);
     border-radius: 50%; box-shadow: 0 0 12px var(--success);
   }
 
@@ -144,11 +143,11 @@
   h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
-    font-size: clamp(2.8rem, 7.5vw, 6.5rem);
+    font-size: clamp(3.5rem, 8.5vw, 6.5rem);
     text-transform: uppercase;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -165,35 +164,71 @@
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     margin-bottom: 25px;
-    max-width: 550px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 10px;
   }
 
-  /* CUADRO "Solo disponible en PC" (Reemplaza al botón de aventura) */
+  /* BOTÓN "Comenzar Aventura" (Solo para PC) */
+  .btn-adventure {
+    display: none; /* Oculto por defecto, se muestra en PC mediante CSS */
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: var(--accent);
+    color: #0b090f;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    padding: 18px 40px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    box-shadow: 0 0 30px var(--accent-glow);
+    margin-bottom: 45px;
+  }
+
+  .btn-adventure:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+    box-shadow: 0 0 45px rgba(254, 184, 255, 0.7);
+  }
+
+  .btn-adventure svg:first-child,
+  .btn-adventure svg:last-child {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* CUADRO MÁS PEQUEÑO "Solo disponible en PC" (Solo para Teléfonos) */
   .mobile-card {
+    display: none; /* Oculto por defecto, se muestra en móviles mediante CSS */
     background: rgba(254, 184, 255, 0.03);
     border: 1px solid rgba(254, 184, 255, 0.2);
-    padding: 24px 20px;
-    border-radius: 16px;
-    max-width: 360px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 280px;
     width: 100%;
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     align-items: center;
     gap: 12px;
     margin-bottom: 35px;
+    text-align: left;
   }
 
   .mobile-icon-box {
-    width: 52px;
-    height: 52px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: rgba(254, 184, 255, 0.08);
     border: 1px solid rgba(254, 184, 255, 0.25);
@@ -201,19 +236,26 @@
     align-items: center;
     justify-content: center;
     color: var(--accent);
-    box-shadow: 0 0 15px var(--accent-glow);
+    box-shadow: 0 0 12px var(--accent-glow);
+    flex-shrink: 0;
   }
 
   .mobile-icon-box svg {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     fill: currentColor;
+  }
+
+  .mobile-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .mobile-title {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 0.9rem;
     color: var(--text-main);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -221,18 +263,18 @@
 
   .mobile-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   /* ESTADÍSTICAS ABAJO */
   .stats-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
   .stat-item {
@@ -244,7 +286,7 @@
   .stat-value {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
-    font-size: 2.3rem;
+    font-size: 2.8rem;
     line-height: 1.1;
     margin-bottom: 4px;
   }
@@ -267,26 +309,36 @@
   .stat-label {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #a0a0ab;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  /* Ajustes extra para pantallas medianas o de escritorio si se desea mantener adaptabilidad fluida */
-  @media (min-width: 768px) {
+  /* CONTROL DE VISIBILIDAD SEGÚN EL DISPOSITIVO (MEDIA QUERIES) */
+  @media (min-width: 901px) {
+    .btn-adventure {
+      display: inline-flex; /* En PC se ve el botón */
+    }
     .mobile-card {
-      max-width: 400px;
-      padding: 28px 24px;
+      display: none !important; /* En PC se oculta el cuadro móvil */
     }
-    .mobile-desc {
-      font-size: 0.92rem;
+  }
+
+  @media (max-width: 900px) {
+    .btn-adventure {
+      display: none !important; /* En móviles se oculta el botón */
     }
-    .stat-value {
-      font-size: 2.8rem;
+    .mobile-card {
+      display: flex; /* En móviles se muestra el cuadro compacto */
+    }
+    .hero {
+      height: auto;
+      min-height: 100vh;
+      padding: 40px 20px;
     }
     .stats-container {
-      gap: 60px;
+      gap: 30px;
     }
   }
 </style>
@@ -325,12 +377,20 @@
       <p>
       Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
+      <a href="#aventura" class="btn-adventure" id="btnComenzar">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Comenzar Aventura
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
       <div class="mobile-card">
         <div class="mobile-icon-box">
           <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
         </div>
-        <div class="mobile-title">Solo disponible en PC</div>
-        <div class="mobile-desc">Accede desde un navegador de escritorio para disfrutar de la experiencia completa de Central RP.</div>
+        <div class="mobile-text-group">
+          <div class="mobile-title">Solo disponible en PC</div>
+          <div class="mobile-desc">Accede desde un navegador de escritorio.</div>
+        </div>
       </div>
 
       <div class="stats-container">
@@ -349,6 +409,13 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('btnComenzar').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("¡Próximamente disponible el nuevo apartado de aventura!");
+    });
+  </script>
 
 </body>
 </html>
