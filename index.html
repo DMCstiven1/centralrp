@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico de la página principal */
+  /* Fondo atmosférico */
   .hero {
     position: relative;
     width: 100%;
@@ -62,7 +62,7 @@
     pointer-events: none;
   }
 
-  /* Distribución en dos columnas tal como la referencia visual */
+  /* Distribución en dos columnas */
   .main-layout {
     position: relative;
     z-index: 2;
@@ -74,7 +74,7 @@
     gap: 40px;
   }
 
-  /* COLUMNA IZQUIERDA: Elementos informativos de Central RP */
+  /* COLUMNA IZQUIERDA */
   .left-column {
     flex: 1;
     display: flex;
@@ -83,15 +83,13 @@
     text-align: left;
   }
 
-  .brand-logo-text {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+  /* Logotipo superior en la columna izquierda */
+  .server-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
     margin-bottom: 20px;
-    text-shadow: 0 0 12px var(--accent-glow);
+    filter: drop-shadow(0 0 15px var(--accent-glow));
   }
 
   h1 {
@@ -154,7 +152,7 @@
   }
 
 
-  /* COLUMNA DERECHA: Tarjeta de Autenticación */
+  /* COLUMNA DERECHA: Tarjeta de Iniciar Sesión */
   .right-column {
     width: 100%;
     max-width: 420px;
@@ -335,6 +333,10 @@
       align-items: center;
       text-align: center;
     }
+    .server-logo {
+      margin-left: auto;
+      margin-right: auto;
+    }
     .left-column > p {
       max-width: 100%;
     }
@@ -360,7 +362,7 @@
     <div class="main-layout">
       
       <div class="left-column">
-        <div class="brand-logo-text">Central RP • Autenticación</div>
+        <img src="https://i.imgur.com/zJ393u3.png" alt="Central RP Logo" class="server-logo">
         
         <h1>
           Panel de
