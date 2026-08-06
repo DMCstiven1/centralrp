@@ -316,61 +316,182 @@
     text-transform: uppercase;
   }
 
-  /* NUEVO APARTADO: AUTH (Oculto por defecto) */
+  /* ========================================== */
+  /* ESTILOS DE LA NUEVA INTERFAZ DE AUTH      */
+  /* ========================================== */
   #authSection {
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
     z-index: 2;
-    background: rgba(254, 184, 255, 0.03);
+    background: rgba(14, 11, 20, 0.75);
     border: 1px solid rgba(254, 184, 255, 0.2);
-    padding: 40px 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    padding: 40px 35px;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(254, 184, 255, 0.05);
   }
 
-  #authSection h2 {
+  .auth-title {
     font-family: 'Outfit', sans-serif;
     font-size: 2.2rem;
     font-weight: 900;
-    color: var(--accent);
-    margin-bottom: 10px;
+    color: var(--text-main);
+    margin-bottom: 8px;
     text-transform: uppercase;
-    text-shadow: 0 0 20px var(--accent-glow);
+    letter-spacing: -0.02em;
   }
 
-  #authSection p {
+  .auth-subtitle {
     color: var(--text-muted);
     font-size: 0.95rem;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 
-  .btn-back {
-    background: transparent;
-    border: 1px solid rgba(254, 184, 255, 0.4);
-    color: var(--accent);
+  /* Botón de Discord Estilizado */
+  .btn-discord-auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    background: var(--accent);
+    color: #0b090f;
     font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    padding: 10px 24px;
-    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.05rem;
+    padding: 16px 24px;
+    border-radius: 14px;
+    border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 15px;
+    text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 25px var(--accent-glow);
+    margin-bottom: 30px;
+  }
+
+  .btn-discord-auth:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(254, 184, 255, 0.7);
+  }
+
+  .btn-discord-auth svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+
+  /* Línea divisoria con texto "INFORMACIÓN" */
+  .auth-divider {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .auth-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(254, 184, 255, 0.15);
+  }
+
+  .auth-divider span {
+    position: relative;
+    background: rgba(14, 11, 20, 0.9);
+    padding: 0 12px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* Tarjetas informativas dentro del Auth */
+  .auth-info-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    background: rgba(254, 184, 255, 0.03);
+    border: 1px solid rgba(254, 184, 255, 0.12);
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    text-align: left;
+    transition: border-color 0.2s ease;
+  }
+
+  .auth-info-card:hover {
+    border-color: rgba(254, 184, 255, 0.3);
+  }
+
+  .auth-info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(254, 184, 255, 0.08);
+    border: 1px solid rgba(254, 184, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .auth-info-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .auth-info-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .auth-info-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
     font-size: 0.85rem;
+    color: var(--text-main);
   }
 
-  .btn-back:hover {
-    background: rgba(254, 184, 255, 0.1);
-    border-color: var(--accent);
+  .auth-info-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
   }
 
-  /* Clase para alternar vistas fácilmente con JS */
+  /* Botón secundario para volver */
+  .btn-back-auth {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color 0.2s ease;
+    text-decoration: underline;
+  }
+
+  .btn-back-auth:hover {
+    color: var(--accent);
+  }
+
+  /* Clase para ocultar elementos */
   .hidden {
     display: none !important;
   }
@@ -500,14 +621,39 @@
     </div>
 
     <div id="authSection">
-      <h2>Autenticación</h2>
-      <p>Bienvenido al sistema de acceso de Central RP. Inicia sesión para continuar con tu aventura.</p>
+      <div class="auth-title">Iniciar Sesión</div>
+      <div class="auth-subtitle">Conecta tu cuenta de Discord para continuar</div>
       
-      <div style="width: 100%; margin-bottom: 20px; color: var(--text-muted); font-size: 0.9rem;">
-        [ Formulario de acceso en construcción ]
+      <a href="#" class="btn-discord-auth" id="btnLoginDiscord">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Continuar con Discord
+      </a>
+
+      <div class="auth-divider">
+        <span>INFORMACIÓN</span>
       </div>
 
-      <button class="btn-back" id="btnVolver">Volver al Inicio</button>
+      <div class="auth-info-card">
+        <div class="auth-info-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        </div>
+        <div class="auth-info-texts">
+          <div class="auth-info-title">Conexión segura</div>
+          <div class="auth-info-desc">Utilizamos OAuth2 de Discord</div>
+        </div>
+      </div>
+
+      <div class="auth-info-card">
+        <div class="auth-info-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        </div>
+        <div class="auth-info-texts">
+          <div class="auth-info-title">¿Primera vez?</div>
+          <div class="auth-info-desc">Te guiaremos paso a paso</div>
+        </div>
+      </div>
+
+      <button class="btn-back-auth" id="btnVolver">Volver al Inicio</button>
     </div>
 
   </div>
@@ -518,16 +664,22 @@
     const btnComenzar = document.getElementById('btnComenzar');
     const btnVolver = document.getElementById('btnVolver');
 
-    // Al hacer clic en "Comenzar Aventura", ocultamos el inicio y mostramos auth
+    // Cambiar a la vista de autenticación
     btnComenzar.addEventListener('click', () => {
       mainSection.classList.add('hidden');
       authSection.style.display = 'flex';
     });
 
-    // Al hacer clic en "Volver al Inicio", ocultamos auth y regresamos al inicio
+    // Volver a la página principal
     btnVolver.addEventListener('click', () => {
       authSection.style.display = 'none';
       mainSection.classList.remove('hidden');
+    });
+
+    // Acción para el botón de Discord (aquí puedes poner la ruta de tu login real más adelante)
+    document.getElementById('btnLoginDiscord').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("¡Próximamente conectando con la API de Discord OAuth2!");
     });
   </script>
 
