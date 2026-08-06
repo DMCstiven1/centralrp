@@ -407,7 +407,7 @@
       <p>
       Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
-      <a href="#aventura" class="btn-adventure" id="btnComenzar">
+      <a href="/auth" class="btn-adventure" id="btnComenzar">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         Comenzar Aventura
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -441,9 +441,10 @@
   </div>
 
   <script>
+    // Se ha quitado el alert y se ha configurado para redirigir a /auth de forma fluida
     document.getElementById('btnComenzar').addEventListener('click', (e) => {
       e.preventDefault();
-      alert("¡Próximamente disponible el nuevo apartado de aventura!");
+      window.location.href = "/auth";
     });
   </script>
 
