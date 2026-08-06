@@ -9,7 +9,7 @@
   
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-dark: #0b090f;
@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico con la nueva imagen y efecto de blur más duro/intenso */
+  /* Fondo atmosférico */
   .hero {
     position: relative;
     width: 100%;
@@ -100,7 +100,7 @@
     border-radius: 50%; box-shadow: 0 0 12px var(--success);
   }
 
-  /* TÍTULO PRINCIPAL: Estilo de la referencia (Línea 1 blanca, Línea 2 rosa) manteniendo los colores actuales */
+  /* TÍTULO PRINCIPAL */
   h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
@@ -133,7 +133,7 @@
     margin-right: auto;
   }
 
-  /* BOTÓN "Comenzar Aventura" en color #feb8ff con icono de play más grande */
+  /* BOTÓN "Comenzar Aventura" */
   .btn-adventure {
     display: inline-flex;
     align-items: center;
@@ -162,13 +162,7 @@
     box-shadow: 0 0 45px rgba(254, 184, 255, 0.7);
   }
 
-  .btn-adventure svg:first-child {
-    width: 24px;
-    height: 24px;
-    fill: currentColor;
-    flex-shrink: 0;
-  }
-
+  .btn-adventure svg:first-child,
   .btn-adventure svg:last-child {
     width: 20px;
     height: 20px;
@@ -176,7 +170,7 @@
     flex-shrink: 0;
   }
 
-  /* ESTADÍSTICAS ABAJO (24/7 en color #feb8ff) */
+  /* ESTADÍSTICAS ABAJO */
   .stats-container {
     display: flex;
     justify-content: center;
@@ -223,7 +217,7 @@
     text-transform: uppercase;
   }
 
-  /* BOTONES REDONDOS A LA IZQUIERDA, SOLO ICONOS */
+  /* BOTONES REDONDOS A LA IZQUIERDA */
   .left-buttons-container {
     position: absolute;
     left: 50px;
@@ -261,35 +255,90 @@
 
   .btn-action svg {
     width: 24px;
-    height: 24px;
+    health: 24px;
     fill: currentColor;
     flex-shrink: 0;
   }
 
-  @media (max-width: 900px) {
-    .left-buttons-container {
-      position: relative;
-      left: auto;
-      top: auto;
-      transform: none;
-      margin-top: 30px;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .hero {
-      height: auto;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-    .stats-container {
-      gap: 30px;
-    }
+  /* ESTILO PARA EL BLOQUEO DE MÓVIL (Inspirado en tu captura) */
+  #mobile-blocker {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(11, 9, 15, 0.88), rgba(11, 9, 15, 0.95)),
+                url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .mobile-card {
+    background: rgba(254, 184, 255, 0.03);
+    border: 1px solid rgba(254, 184, 255, 0.2);
+    padding: 30px 20px;
+    border-radius: 20px;
+    max-width: 380px;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .mobile-icon-box {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: rgba(254, 184, 255, 0.08);
+    border: 1px solid rgba(254, 184, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+    margin-bottom: 5px;
+  }
+
+  .mobile-icon-box svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+  }
+
+  .mobile-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 </style>
 </head>
-</head>
 <body>
-  <div class="hero">
+
+  <div id="mobile-blocker">
+    <div class="mobile-card">
+      <div class="mobile-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+      </div>
+      <div class="mobile-title">Solo disponible en PC</div>
+      <div class="mobile-desc">Accede desde un navegador de escritorio para disfrutar de la experiencia completa de Central RP.</div>
+    </div>
+  </div>
+
+  <div class="hero" id="main-content">
     <div class="left-buttons-container">
       <a href="mtasa://135.148.164.122:23843" class="btn-action" title="Entrar al Servidor MTA">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -344,6 +393,19 @@
   </div>
 
   <script>
+    // Script para detectar si se accede desde un dispositivo móvil o tablet
+    function checkDevice() {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900;
+      
+      if (isMobile) {
+        document.getElementById('mobile-blocker').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    window.addEventListener('load', checkDevice);
+    window.addEventListener('resize', checkDevice);
+
     document.getElementById('btnComenzar').addEventListener('click', (e) => {
       e.preventDefault();
       alert("¡Próximamente disponible el nuevo apartado de aventura!");
