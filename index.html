@@ -26,20 +26,20 @@
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    height: 100vh;
+    min-height: 100vh;
   }
 
   /* Fondo atmosférico */
   .hero {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 15px;
     background: linear-gradient(rgba(11, 9, 15, 0.82), rgba(11, 9, 15, 0.9), rgba(11, 9, 15, 0.96)),
                 url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
   }
@@ -69,13 +69,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   /* BOTONES SUPERIORES (Play, Discord, TikTok) */
   .top-buttons-container {
     display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 20px;
     z-index: 10;
   }
 
@@ -83,8 +84,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: rgba(254, 184, 255, 0.05);
     color: var(--accent);
@@ -104,8 +105,8 @@
   }
 
   .btn-action svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     fill: currentColor;
     flex-shrink: 0;
   }
@@ -114,15 +115,15 @@
   .badge-top {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: rgba(254, 184, 255, 0.07);
     border: 1px solid rgba(254, 184, 255, 0.25);
-    padding: 10px 26px;
+    padding: 8px 22px;
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--accent);
-    margin-bottom: 28px;
+    margin-bottom: 22px;
     letter-spacing: 0.02em;
     backdrop-filter: blur(12px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -135,7 +136,7 @@
   }
 
   .badge-top .dot {
-    width: 9px; height: 9px; background: var(--success);
+    width: 8px; height: 8px; background: var(--success);
     border-radius: 50%; box-shadow: 0 0 12px var(--success);
   }
 
@@ -143,11 +144,11 @@
   h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
-    font-size: clamp(3.5rem, 8.5vw, 6.5rem);
+    font-size: clamp(2.8rem, 7.5vw, 6.5rem);
     text-transform: uppercase;
     line-height: 1.05;
     letter-spacing: -0.02em;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,58 +165,74 @@
   }
 
   .hero p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-muted);
     margin-bottom: 25px;
-    max-width: 600px;
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
   }
 
-  /* BOTÓN "Comenzar Aventura" */
-  .btn-adventure {
-    display: inline-flex;
+  /* CUADRO "Solo disponible en PC" (Reemplaza al botón de aventura) */
+  .mobile-card {
+    background: rgba(254, 184, 255, 0.03);
+    border: 1px solid rgba(254, 184, 255, 0.2);
+    padding: 24px 20px;
+    border-radius: 16px;
+    max-width: 360px;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 35px;
+  }
+
+  .mobile-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(254, 184, 255, 0.08);
+    border: 1px solid rgba(254, 184, 255, 0.25);
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    background: var(--accent);
-    color: #0b090f;
+    color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+
+  .mobile-icon-box svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  .mobile-title {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
     font-size: 1.15rem;
-    padding: 18px 40px;
-    border-radius: 14px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+    color: var(--text-main);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    box-shadow: 0 0 30px var(--accent-glow);
-    margin-bottom: 45px;
+    letter-spacing: 0.02em;
   }
 
-  .btn-adventure:hover {
-    transform: translateY(-2px);
-    background: #ffffff;
-    box-shadow: 0 0 45px rgba(254, 184, 255, 0.7);
-  }
-
-  .btn-adventure svg:first-child,
-  .btn-adventure svg:last-child {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    flex-shrink: 0;
+  .mobile-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
   }
 
   /* ESTADÍSTICAS ABAJO */
   .stats-container {
     display: flex;
     justify-content: center;
-    gap: 60px;
+    gap: 40px;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .stat-item {
@@ -227,7 +244,7 @@
   .stat-value {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
-    font-size: 2.8rem;
+    font-size: 2.3rem;
     line-height: 1.1;
     margin-bottom: 4px;
   }
@@ -250,89 +267,31 @@
   .stat-label {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: #a0a0ab;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  /* ESTILO PARA EL BLOQUEO DE MÓVIL (Inspirado en la captura) */
-  #mobile-blocker {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(11, 9, 15, 0.88), rgba(11, 9, 15, 0.95)),
-                url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
-    z-index: 99999;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .mobile-card {
-    background: rgba(254, 184, 255, 0.03);
-    border: 1px solid rgba(254, 184, 255, 0.2);
-    padding: 35px 25px;
-    border-radius: 20px;
-    max-width: 380px;
-    width: 100%;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .mobile-icon-box {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: rgba(254, 184, 255, 0.08);
-    border: 1px solid rgba(254, 184, 255, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    box-shadow: 0 0 20px var(--accent-glow);
-    margin-bottom: 5px;
-  }
-
-  .mobile-icon-box svg {
-    width: 30px;
-    height: 30px;
-    fill: currentColor;
-  }
-
-  .mobile-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: 1.35rem;
-    color: var(--text-main);
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-  }
-
-  .mobile-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    line-height: 1.4;
+  /* Ajustes extra para pantallas medianas o de escritorio si se desea mantener adaptabilidad fluida */
+  @media (min-width: 768px) {
+    .mobile-card {
+      max-width: 400px;
+      padding: 28px 24px;
+    }
+    .mobile-desc {
+      font-size: 0.92rem;
+    }
+    .stat-value {
+      font-size: 2.8rem;
+    }
+    .stats-container {
+      gap: 60px;
+    }
   }
 </style>
 </head>
 <body>
-
-  <div id="mobile-blocker">
-    <div class="mobile-card">
-      <div class="mobile-icon-box">
-        <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
-      </div>
-      <div class="mobile-title">Solo disponible en PC</div>
-      <div class="mobile-desc">Accede desde un navegador de escritorio para disfrutar de la experiencia completa de Central RP.</div>
-    </div>
-  </div>
 
   <div class="hero">
     <div class="hero-content">
@@ -366,11 +325,13 @@
       <p>
       Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
-      <a href="#aventura" class="btn-adventure" id="btnComenzar">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        Comenzar Aventura
-        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="mobile-card">
+        <div class="mobile-icon-box">
+          <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+        </div>
+        <div class="mobile-title">Solo disponible en PC</div>
+        <div class="mobile-desc">Accede desde un navegador de escritorio para disfrutar de la experiencia completa de Central RP.</div>
+      </div>
 
       <div class="stats-container">
         <div class="stat-item">
@@ -388,26 +349,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // Función para bloquear la página en dispositivos móviles o pantallas pequeñas
-    function checkDevice() {
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900;
-      
-      if (isMobile) {
-        document.getElementById('mobile-blocker').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    window.addEventListener('load', checkDevice);
-    window.addEventListener('resize', checkDevice);
-
-    document.getElementById('btnComenzar').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert("¡Próximamente disponible el nuevo apartado de aventura!");
-    });
-  </script>
 
 </body>
 </html>
