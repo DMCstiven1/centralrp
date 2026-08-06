@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Central RP</title>
+<title>Central RP - Iniciar Sesión</title>
 
   <link rel="icon" type="image/png" href="https://i.imgur.com/rg130IN.png">
   
@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico común */
+  /* Fondo atmosférico de la página principal */
   .hero {
     position: relative;
     width: 100%;
@@ -62,7 +62,7 @@
     pointer-events: none;
   }
 
-  /* CONTENEDOR PRINCIPAL EN DOS COLUMNAS */
+  /* Distribución en dos columnas tal como la referencia visual */
   .main-layout {
     position: relative;
     z-index: 2;
@@ -74,17 +74,7 @@
     gap: 40px;
   }
 
-  /* ========================================== */
-  /* VISTA 1: INICIO (/)                         */
-  /* ========================================== */
-  #homeView {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 40px;
-  }
-
+  /* COLUMNA IZQUIERDA: Elementos informativos de Central RP */
   .left-column {
     flex: 1;
     display: flex;
@@ -148,12 +138,6 @@
     padding: 12px 16px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
-    transition: all 0.2s ease;
-  }
-
-  .feature-pill:hover {
-    border-color: rgba(254, 184, 255, 0.4);
-    background: rgba(254, 184, 255, 0.06);
   }
 
   .feature-pill svg {
@@ -169,96 +153,19 @@
     color: var(--text-main);
   }
 
-  .stats-row {
-    display: flex;
-    gap: 50px;
-  }
 
-  .stat-block {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stat-num {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 2.4rem;
-    line-height: 1.1;
-    color: var(--text-main);
-  }
-
-  .stat-num.highlight {
-    color: var(--accent);
-    text-shadow: 0 0 20px var(--accent-glow);
-  }
-
-  .stat-txt {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 4px;
-  }
-
-  /* Botón de acción derecha (Comenzar Aventura) */
-  .right-action-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn-adventure {
-    display: inline-flex; 
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    background: var(--accent);
-    color: #0b090f;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: 1.15rem;
-    padding: 20px 35px;
-    border-radius: 16px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    box-shadow: 0 0 35px var(--accent-glow);
-  }
-
-  .btn-adventure:hover {
-    transform: translateY(-2px);
-    background: #ffffff;
-    box-shadow: 0 0 50px rgba(254, 184, 255, 0.7);
-  }
-
-  .btn-adventure svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-    flex-shrink: 0;
-  }
-
-
-  /* ========================================== */
-  /* VISTA 2: INICIO DE SESIÓN (/auth)          */
-  /* ========================================== */
-  #authView {
-    display: none; /* Oculto por defecto, se muestra mediante JS */
-    justify-content: center;
-    align-items: center;
+  /* COLUMNA DERECHA: Tarjeta de Autenticación */
+  .right-column {
     width: 100%;
+    max-width: 420px;
+    display: flex;
+    justify-content: center;
   }
 
   .auth-card {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 440px;
     background: rgba(14, 11, 20, 0.85);
     border: 1px solid rgba(254, 184, 255, 0.2);
     padding: 40px 35px;
@@ -409,21 +316,6 @@
     text-decoration: underline;
   }
 
-  .btn-back {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 15px;
-    text-align: center;
-    text-decoration: underline;
-  }
-  .btn-back:hover {
-    color: var(--accent);
-  }
-
   /* RESPONSIVE */
   @media (max-width: 950px) {
     .hero {
@@ -433,7 +325,7 @@
       justify-content: flex-start;
       overflow-y: auto;
     }
-    #homeView {
+    .main-layout {
       flex-direction: column;
       align-items: center;
       text-align: center;
@@ -450,8 +342,14 @@
       grid-template-columns: 1fr;
       max-width: 100%;
     }
-    .stats-row {
-      justify-content: center;
+    .right-column {
+      max-width: 100%;
+    }
+    .auth-card {
+      text-align: center;
+    }
+    .auth-info-card {
+      text-align: left;
     }
   }
 </style>
@@ -461,63 +359,32 @@
   <div class="hero">
     <div class="main-layout">
       
-      <div id="homeView">
-        <div class="left-column">
-          <div class="brand-logo-text">Central RP • Roleplay Inmersivo</div>
-          
-          <h1>
-            Bienvenido a
-            <span>Central RP</span>
-          </h1>
+      <div class="left-column">
+        <div class="brand-logo-text">Central RP • Autenticación</div>
+        
+        <h1>
+          Panel de
+          <span>Acceso</span>
+        </h1>
 
-          <p>
-            La comunidad de roleplay más inmersiva de habla hispana. Donde cada historia cobra vida y cada decisión marca la diferencia.
-          </p>
+        <p>
+          Inicia sesión para gestionar tu cuenta, verificar tu estado en el servidor y acceder a los servicios exclusivos de nuestra comunidad.
+        </p>
 
-          <div class="features-grid">
-            <div class="feature-pill">
-              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-              <span>Comunidad activa</span>
-            </div>
-
-            <div class="feature-pill">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-              <span>Sistema de whitelist</span>
-            </div>
-
-            <div class="feature-pill">
-              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-              <span>Roleplay de calidad</span>
-            </div>
-
-            <div class="feature-pill">
-              <svg viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.05.5-9 4.77-9 9.95 0 5.52 4.48 10 10 10 2.21 0 4.25-.72 5.9-1.93l-2.6-1.53c-1.01.69-2.25 1.11-3.3 1.11z"/></svg>
-              <span>Eventos exclusivos</span>
-            </div>
+        <div class="features-grid">
+          <div class="feature-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            <span>OAuth2 Seguro</span>
           </div>
 
-          <div class="stats-row">
-            <div class="stat-block">
-              <div class="stat-num highlight">1,000+</div>
-              <div class="stat-txt">Usuarios activos</div>
-            </div>
-            <div class="stat-block">
-              <div class="stat-num">500+</div>
-              <div class="stat-txt">Whitelists aprobadas</div>
-            </div>
+          <div class="feature-pill">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>Soporte 24/7</span>
           </div>
-        </div>
-
-        <div class="right-action-column">
-          <button class="btn-adventure" id="btnGoAuth">
-            Comenzar Aventura
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
         </div>
       </div>
 
-
-      <div id="authView">
+      <div class="right-column">
         <div class="auth-card">
           <div class="auth-title">Iniciar Sesión</div>
           <div class="auth-subtitle">Conecta tu cuenta de Discord para continuar</div>
@@ -554,8 +421,6 @@
           <div class="auth-footer-terms">
             Al continuar, aceptas nuestros <a href="#">Términos de Servicio</a> y <a href="#">Política de Privacidad</a>.
           </div>
-
-          <button class="btn-back" id="btnGoHome">← Volver al inicio</button>
         </div>
       </div>
 
@@ -563,43 +428,6 @@
   </div>
 
   <script>
-    const homeView = document.getElementById('homeView');
-    const authView = document.getElementById('authView');
-    const btnGoAuth = document.getElementById('btnGoAuth');
-    const btnGoHome = document.getElementById('btnGoHome');
-
-    // Función para manejar las vistas según la ruta (hash o path simulado)
-    function router() {
-      const path = window.location.pathname;
-      
-      if (path.includes('/auth')) {
-        homeView.style.display = 'none';
-        authView.style.display = 'flex';
-      } else {
-        authView.style.display = 'none';
-        homeView.style.display = 'flex';
-      }
-    }
-
-    // Botón para ir a /auth
-    btnGoAuth.addEventListener('click', () => {
-      window.history.pushState({}, '', '/auth');
-      router();
-    });
-
-    // Botón para volver a /
-    btnGoHome.addEventListener('click', () => {
-      window.history.pushState({}, '', '/');
-      router();
-    });
-
-    // Escuchar cambios en el historial del navegador (atrás / adelante)
-    window.addEventListener('popstate', router);
-
-    // Cargar la ruta inicial al abrir la página
-    router();
-
-    // Simulación del botón de Discord
     document.getElementById('btnLoginDiscord').addEventListener('click', (e) => {
       e.preventDefault();
       alert("¡Conectando con Discord OAuth2 de Central RP!");
