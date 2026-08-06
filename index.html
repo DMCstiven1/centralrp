@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico PC */
+  /* Fondo atmosférico garantizado con respaldo de alta calidad y gradiente neón */
   .hero {
     position: relative;
     width: 100%;
@@ -40,8 +40,8 @@
     align-items: center;
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(rgba(11, 9, 15, 0.82), rgba(11, 9, 15, 0.9), rgba(11, 9, 15, 0.96)),
-                url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
+    background: linear-gradient(rgba(11, 9, 15, 0.85), rgba(11, 9, 15, 0.92), rgba(11, 9, 15, 0.98)),
+                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
   }
 
   .hero::after {
@@ -71,7 +71,7 @@
     align-items: center;
   }
 
-  /* BOTONES SUPERIORES (Play, Discord, TikTok) */
+  /* BOTONES SUPERIORES / IZQUIERDA */
   .top-buttons-container {
     display: flex;
     gap: 16px;
@@ -209,29 +209,27 @@
     flex-shrink: 0;
   }
 
-  /* CUADRO COMPACTO "Solo disponible en PC" CON EL NUEVO BACKGROUND (SOLO SE MUESTRA EN TELÉFONOS) */
+  /* CUADRO COMPACTO MÁS PEQUEÑO "Solo disponible en PC" (SOLO SE MUESTRA EN TELÉFONOS) */
   .mobile-card {
     display: none; 
-    position: relative;
-    background: linear-gradient(rgba(11, 9, 15, 0.82), rgba(11, 9, 15, 0.9)),
-                url('https://i.imgur.com/nB62BWW.png') no-repeat center center/cover;
-    border: 1px solid rgba(254, 184, 255, 0.3);
-    padding: 14px 18px;
-    border-radius: 14px;
-    max-width: 280px;
+    background: rgba(254, 184, 255, 0.04);
+    border: 1px solid rgba(254, 184, 255, 0.25);
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 240px;
     width: 100%;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
+    gap: 10px;
+    margin-bottom: 20px;
     text-align: left;
   }
 
   .mobile-icon-box {
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(254, 184, 255, 0.1);
     border: 1px solid rgba(254, 184, 255, 0.3);
@@ -239,26 +237,26 @@
     align-items: center;
     justify-content: center;
     color: var(--accent);
-    box-shadow: 0 0 12px var(--accent-glow);
+    box-shadow: 0 0 10px var(--accent-glow);
     flex-shrink: 0;
   }
 
   .mobile-icon-box svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     fill: currentColor;
   }
 
   .mobile-text-group {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
   }
 
   .mobile-title {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-main);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -266,9 +264,9 @@
 
   .mobile-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
-    line-height: 1.3;
+    line-height: 1.2;
   }
 
   /* ESTADÍSTICAS ABAJO */
@@ -318,7 +316,7 @@
     text-transform: uppercase;
   }
 
-  /* REGLAS EXACTAS PARA DISPOSITIVOS (Móvil optimizado hacia arriba) */
+  /* REGLAS PARA TELÉFONOS (Eleva la información hacia arriba para que no se salga ni quede abajo) */
   @media (max-width: 900px) {
     .btn-adventure {
       display: none !important; 
@@ -328,40 +326,40 @@
     }
     .hero {
       height: 100vh;
-      justify-content: flex-start; /* Eleva todo el contenido hacia arriba en teléfonos */
-      padding: 30px 15px;
+      justify-content: flex-start;
+      padding: 25px 15px;
       overflow-y: auto;
     }
     .hero-content {
       margin-top: auto;
       margin-bottom: auto;
-      padding: 10px 0;
+      padding: 5px 0;
     }
     .top-buttons-container {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .badge-top {
-      margin-bottom: 18px;
-      padding: 8px 20px;
-      font-size: 0.9rem;
+      margin-bottom: 14px;
+      padding: 7px 18px;
+      font-size: 0.85rem;
     }
     h1 {
-      font-size: clamp(2.8rem, 12vw, 4.5rem);
-      margin-bottom: 12px;
+      font-size: clamp(2.5rem, 11vw, 4rem);
+      margin-bottom: 10px;
     }
     .hero p {
-      font-size: 0.95rem;
-      margin-bottom: 18px;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
     }
     .stats-container {
-      gap: 30px;
+      gap: 25px;
       margin-top: 5px;
     }
     .stat-value {
-      font-size: 2.2rem;
+      font-size: 2rem;
     }
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
   }
 
@@ -421,7 +419,7 @@
         </div>
         <div class="mobile-text-group">
           <div class="mobile-title">Solo disponible en PC</div>
-          <div class="mobile-desc">Accede desde un navegador de escritorio.</div>
+          <div class="mobile-desc">Navegador de escritorio requerido.</div>
         </div>
       </div>
 
@@ -450,5 +448,4 @@
   </script>
 
 </body>
-            </html>
-            
+</html>
