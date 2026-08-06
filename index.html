@@ -172,9 +172,9 @@
     margin-right: auto;
   }
 
-  /* BOTÓN "Comenzar Aventura" (Solo para PC) */
+  /* BOTÓN "Comenzar Aventura" (SOLO SE MUESTRA EN PC) */
   .btn-adventure {
-    display: none; /* Oculto por defecto, se muestra en PC mediante CSS */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     gap: 14px;
@@ -209,9 +209,9 @@
     flex-shrink: 0;
   }
 
-  /* CUADRO MÁS PEQUEÑO "Solo disponible en PC" (Solo para Teléfonos) */
+  /* CUADRO COMPACTO "Solo disponible en PC" (SOLO SE MUESTRA EN TELÉFONOS) */
   .mobile-card {
-    display: none; /* Oculto por defecto, se muestra en móviles mediante CSS */
+    display: none; 
     background: rgba(254, 184, 255, 0.03);
     border: 1px solid rgba(254, 184, 255, 0.2);
     padding: 14px 18px;
@@ -315,22 +315,13 @@
     text-transform: uppercase;
   }
 
-  /* CONTROL DE VISIBILIDAD SEGÚN EL DISPOSITIVO (MEDIA QUERIES) */
-  @media (min-width: 901px) {
-    .btn-adventure {
-      display: inline-flex; /* En PC se ve el botón */
-    }
-    .mobile-card {
-      display: none !important; /* En PC se oculta el cuadro móvil */
-    }
-  }
-
+  /* REGLAS EXACTAS PARA DISPOSITIVOS */
   @media (max-width: 900px) {
     .btn-adventure {
-      display: none !important; /* En móviles se oculta el botón */
+      display: none !important; /* Oculta el botón de aventura en teléfonos */
     }
     .mobile-card {
-      display: flex; /* En móviles se muestra el cuadro compacto */
+      display: flex !important; /* Muestra el cuadro en teléfonos */
     }
     .hero {
       height: auto;
@@ -339,6 +330,15 @@
     }
     .stats-container {
       gap: 30px;
+    }
+  }
+
+  @media (min-width: 901px) {
+    .btn-adventure {
+      display: inline-flex !important; /* Muestra el botón de aventura en PC */
+    }
+    .mobile-card {
+      display: none !important; /* Oculta el cuadro en PC */
     }
   }
 </style>
