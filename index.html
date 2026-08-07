@@ -29,7 +29,6 @@
     height: 100vh;
   }
 
-  /* Fondo atmosférico garantizado con respaldo de alta calidad y gradiente neón */
   .hero {
     position: relative;
     width: 100%;
@@ -70,7 +69,6 @@
     pointer-events: none;
   }
 
-  /* WIDGET DE PERFIL SUPERIOR DERECHA */
   .user-profile-badge {
     position: absolute;
     top: 30px;
@@ -139,7 +137,6 @@
     align-items: center;
   }
 
-  /* BOTONES SUPERIORES / IZQUIERDA */
   .top-buttons-container {
     display: flex;
     gap: 16px;
@@ -178,7 +175,6 @@
     flex-shrink: 0;
   }
 
-  /* Badge superior */
   .badge-top {
     display: inline-flex;
     align-items: center;
@@ -207,7 +203,6 @@
     border-radius: 50%; box-shadow: 0 0 12px var(--success);
   }
 
-  /* TÍTULO PRINCIPAL */
   h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
@@ -240,7 +235,6 @@
     margin-right: auto;
   }
 
-  /* BOTÓN "Comenzar Aventura" (SOLO SE MUESTRA EN PC) */
   .btn-adventure {
     display: inline-flex; 
     align-items: center;
@@ -277,7 +271,6 @@
     flex-shrink: 0;
   }
 
-  /* CUADRO COMPACTO MÁS PEQUEÑO "Solo disponible en PC" (SOLO SE MUESTRA EN TELÉFONOS) */
   .mobile-card {
     display: none; 
     background: rgba(254, 184, 255, 0.04);
@@ -337,7 +330,6 @@
     line-height: 1.2;
   }
 
-  /* ESTADÍSTICAS ABAJO */
   .stats-container {
     display: flex;
     justify-content: center;
@@ -360,20 +352,9 @@
     margin-bottom: 4px;
   }
 
-  .stat-value.online {
-    color: #4ade80;
-    text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
-  }
-
-  .stat-value.miembros {
-    color: #60a5fa;
-    text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
-  }
-
-  .stat-value.activo {
-    color: var(--accent);
-    text-shadow: 0 0 20px var(--accent-glow);
-  }
+  .stat-value.online { color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.4); }
+  .stat-value.miembros { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.4); }
+  .stat-value.activo { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
 
   .stat-label {
     font-family: 'Inter', sans-serif;
@@ -384,65 +365,26 @@
     text-transform: uppercase;
   }
 
-  /* REGLAS PARA TELÉFONOS */
   @media (max-width: 900px) {
-    .btn-adventure {
-      display: none !important; 
-    }
-    .mobile-card {
-      display: flex !important; 
-    }
-    .hero {
-      height: 100vh;
-      justify-content: flex-start;
-      padding: 25px 15px;
-      overflow-y: auto;
-    }
-    .hero-content {
-      margin-top: auto;
-      margin-bottom: auto;
-      padding: 5px 0;
-    }
-    .top-buttons-container {
-      margin-bottom: 14px;
-    }
-    .badge-top {
-      margin-bottom: 14px;
-      padding: 7px 18px;
-      font-size: 0.85rem;
-    }
-    h1 {
-      font-size: clamp(2.5rem, 11vw, 4rem);
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 0.9rem;
-      margin-bottom: 14px;
-    }
-    .stats-container {
-      gap: 25px;
-      margin-top: 5px;
-    }
-    .stat-value {
-      font-size: 2rem;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-    }
-    .user-profile-badge {
-      top: 15px; right: 15px; padding: 6px 12px 6px 6px;
-    }
+    .btn-adventure { display: none !important; }
+    .mobile-card { display: flex !important; }
+    .hero { height: 100vh; justify-content: flex-start; padding: 25px 15px; overflow-y: auto; }
+    .hero-content { margin-top: auto; margin-bottom: auto; padding: 5px 0; }
+    .top-buttons-container { margin-bottom: 14px; }
+    .badge-top { margin-bottom: 14px; padding: 7px 18px; font-size: 0.85rem; }
+    h1 { font-size: clamp(2.5rem, 11vw, 4rem); margin-bottom: 10px; }
+    .hero p { font-size: 0.9rem; margin-bottom: 14px; }
+    .stats-container { gap: 25px; margin-top: 5px; }
+    .stat-value { font-size: 2rem; }
+    .stat-label { font-size: 0.75rem; }
+    .user-profile-badge { top: 15px; right: 15px; padding: 6px 12px 6px 6px; }
     .user-avatar { width: 32px; height: 32px; }
     .user-name { font-size: 0.8rem; }
   }
 
   @media (min-width: 901px) {
-    .btn-adventure {
-      display: inline-flex !important; 
-    }
-    .mobile-card {
-      display: none !important; 
-    }
+    .btn-adventure { display: inline-flex !important; }
+    .mobile-card { display: none !important; }
   }
 </style>
 </head>
@@ -489,8 +431,7 @@
         <span class="title-line-2">ROLEPLAY</span>
       </h1>
 
-      <p>
-      Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
+      <p>Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
       <a href="/login" class="btn-adventure" id="btnComenzar">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -526,7 +467,6 @@
   </div>
 
   <script>
-    // Función para leer la cookie de sesión enviada por el Worker
     function getCookie(name) {
       const value = `; ${document.cookie}`;
       const parts = value.split(`; ${name}=`);
@@ -540,12 +480,10 @@
         try {
           const user = JSON.parse(cookieData);
           if (user.username && user.avatar) {
-            // Pintamos la foto y el nombre en la esquina superior derecha
             document.getElementById('userNameTxt').textContent = user.username;
             document.getElementById('userAvatarImg').src = user.avatar;
             document.getElementById('userBadge').style.display = 'flex';
 
-            // Actualizamos el botón para indicar sesión activa
             const btnComenzar = document.getElementById('btnComenzar');
             btnComenzar.innerHTML = `
               <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
@@ -558,20 +496,17 @@
       }
     });
 
-    // Control del botón Comenzar Aventura
     const btnComenzar = document.getElementById('btnComenzar');
     const heroSection = document.getElementById('heroSection');
 
     btnComenzar.addEventListener('click', (e) => {
       const cookieData = getCookie('discord_user');
 
-      // SI YA TIENE SESIÓN ACTIVA: Bloqueamos la acción para que no haga nada
       if (cookieData) {
         e.preventDefault();
         return;
       }
 
-      // SI NO TIENE SESIÓN: Ejecuta la animación de salida y va al login
       e.preventDefault(); 
       const destino = btnComenzar.getAttribute('href');
 
