@@ -29,7 +29,7 @@
     height: 100vh;
   }
 
-  /* Control de vistas (Ocultar / Mostrar) */
+  /* Control de vistas unificadas en un solo archivo */
   .view-section {
     display: none;
     width: 100%;
@@ -39,7 +39,7 @@
     display: flex;
   }
 
-  /* ESTILOS COMUNES DE HERO */
+  /* ESTILOS COMUNES HERO */
   .hero {
     position: relative;
     width: 100%;
@@ -614,7 +614,7 @@
 
       <p>Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
-      <a href="#auth" class="btn-adventure" id="btnComenzar">
+      <a href="/auth" class="btn-adventure" id="btnComenzar">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         Comenzar Aventura
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -726,18 +726,22 @@
     const viewHome = document.getElementById('view-home');
     const viewAuth = document.getElementById('view-auth');
 
-    btnComenzar.addEventListener('click', (e) => {
-      e.preventDefault();
+    function cambiarVistaAuth() {
       viewHome.classList.remove('active');
       viewAuth.classList.add('active');
-      history.pushState(null, '', '#auth'); // Actualiza la URL con #auth de manera fluida
+      // Cambia la URL exactamente a /auth sin el símbolo #
+      history.pushState(null, '', '/auth');
+    }
+
+    btnComenzar.addEventListener('click', (e) => {
+      e.preventDefault();
+      cambiarVistaAuth();
     });
 
-    // Soporte opcional por si el usuario recarga o entra directo con el hash #auth
+    // Detecta si recargas la página estando en /auth o entras directo desde la URL limpia
     window.addEventListener('load', () => {
-      if(window.location.hash === '#auth') {
-        viewHome.classList.remove('active');
-        viewAuth.classList.add('active');
+      if(window.location.pathname.includes('/auth') || window.location.hash === '#auth') {
+        cambiarVistaAuth();
       }
     });
   </script>
