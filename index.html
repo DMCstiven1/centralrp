@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Central RP</title>
 
-  <link rel="icon" type="image/png" href="https://i.imgur.com/rg130IN.png">
-  
+<link rel="icon" type="image/png" href="https://i.imgur.com/rg130IN.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@800;900&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg-dark: #0b090f;
@@ -27,16 +27,48 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     height: 100vh;
+    position: relative;
   }
 
-  /* Control de vistas unificadas en un solo archivo */
+  /* CONTENEDOR DE VISTAS */
   .view-section {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
   }
+
   .view-section.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  /* Animación de transición sutil */
+  .fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  .fade-in {
+    animation: fadeInAnim 0.4s ease-in-out forwards;
+  }
+
+  @keyframes fadeInAnim {
+    from {
+      opacity: 0;
+      transform: scale(1.02);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   /* ESTILOS COMUNES HERO */
@@ -81,7 +113,7 @@
     align-items: center;
   }
 
-  /* BOTONES SUPERIORES / IZQUIERDA */
+  /* BOTONES SUPERIORES */
   .top-buttons-container {
     display: flex;
     gap: 16px;
@@ -585,7 +617,7 @@
 </head>
 <body>
 
-  <div id="view-home" class="view-section active hero">
+  <div id="view-home" class="view-section hero active">
     <div class="hero-content">
       
       <div class="top-buttons-container">
@@ -726,22 +758,48 @@
     const viewHome = document.getElementById('view-home');
     const viewAuth = document.getElementById('view-auth');
 
-    function cambiarVistaAuth() {
-      viewHome.classList.remove('active');
-      viewAuth.classList.add('active');
-      // Cambia la URL exactamente a /auth sin el símbolo #
+    // Función para mostrar Auth con animación
+    function mostrarAuth(conAnimacion = true) {
+      if (conAnimacion) {
+        viewHome.classList.add('fade-out');
+        setTimeout(() => {
+          viewHome.classList.remove('active', 'fade-out');
+          viewAuth.classList.add('active', 'fade-in');
+        }, 350);
+      } else {
+        viewHome.classList.remove('active');
+        viewAuth.classList.add('active');
+      }
       history.pushState(null, '', '/auth');
     }
 
+    // Función para mostrar Home (por si el usuario usa las flechas del navegador)
+    function mostrarHome() {
+      viewAuth.classList.remove('active', 'fade-in');
+      viewHome.classList.add('active');
+      viewHome.classList.remove('fade-out');
+      history.pushState(null, '', '/');
+    }
+
+    // Evento al dar clic en Comenzar Aventura
     btnComenzar.addEventListener('click', (e) => {
       e.preventDefault();
-      cambiarVistaAuth();
+      mostrarAuth(true);
     });
 
-    // Detecta si recargas la página estando en /auth o entras directo desde la URL limpia
-    window.addEventListener('load', () => {
-      if(window.location.pathname.includes('/auth') || window.location.hash === '#auth') {
-        cambiarVistaAuth();
+    // Soporte para F5 / Recarga: Si recargas estando en /auth, se mantiene en auth
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.pathname.includes('/auth') || window.location.hash === '#auth') {
+        mostrarAuth(false);
+      }
+    });
+
+    // Control de las flechas "Atrás" y "Adelante" del navegador
+    window.addEventListener('popstate', () => {
+      if (window.location.pathname.includes('/auth')) {
+        mostrarAuth(false);
+      } else {
+        mostrarHome();
       }
     });
   </script>
