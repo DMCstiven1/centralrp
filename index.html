@@ -29,6 +29,7 @@
     height: 100vh;
   }
 
+  /* Fondo atmosférico garantizado con respaldo de alta calidad y gradiente neón */
   .hero {
     position: relative;
     width: 100%;
@@ -69,13 +70,13 @@
     pointer-events: none;
   }
 
-  /* WIDGET DE PERFIL SUPERIOR DERECHA (Dinámico según sesión) */
+  /* WIDGET DE PERFIL SUPERIOR DERECHA */
   .user-profile-badge {
     position: absolute;
     top: 30px;
     right: 40px;
     z-index: 100;
-    display: none; /* Oculto por defecto hasta que inicie sesión */
+    display: none; 
     align-items: center;
     gap: 12px;
     background: rgba(14, 11, 20, 0.85);
@@ -84,13 +85,6 @@
     border-radius: 50px;
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .user-profile-badge:hover {
-    border-color: var(--accent);
-    box-shadow: 0 0 20px var(--accent-glow);
   }
 
   .user-avatar {
@@ -145,6 +139,7 @@
     align-items: center;
   }
 
+  /* BOTONES SUPERIORES / IZQUIERDA */
   .top-buttons-container {
     display: flex;
     gap: 16px;
@@ -183,6 +178,7 @@
     flex-shrink: 0;
   }
 
+  /* Badge superior */
   .badge-top {
     display: inline-flex;
     align-items: center;
@@ -211,6 +207,7 @@
     border-radius: 50%; box-shadow: 0 0 12px var(--success);
   }
 
+  /* TÍTULO PRINCIPAL */
   h1 {
     font-family: 'Outfit', sans-serif;
     font-weight: 900;
@@ -224,8 +221,15 @@
     align-items: center;
   }
 
-  .title-line-1 { color: #ffffff; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5); }
-  .title-line-2 { color: var(--accent); text-shadow: 0 0 35px var(--accent-glow); }
+  .title-line-1 {
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .title-line-2 {
+    color: var(--accent);
+    text-shadow: 0 0 35px var(--accent-glow);
+  }
 
   .hero p {
     font-size: 1.1rem;
@@ -236,6 +240,7 @@
     margin-right: auto;
   }
 
+  /* BOTÓN "Comenzar Aventura" (SOLO SE MUESTRA EN PC) */
   .btn-adventure {
     display: inline-flex; 
     align-items: center;
@@ -272,6 +277,7 @@
     flex-shrink: 0;
   }
 
+  /* CUADRO COMPACTO MÁS PEQUEÑO "Solo disponible en PC" (SOLO SE MUESTRA EN TELÉFONOS) */
   .mobile-card {
     display: none; 
     background: rgba(254, 184, 255, 0.04);
@@ -281,6 +287,7 @@
     max-width: 240px;
     width: 100%;
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
     align-items: center;
     gap: 10px;
@@ -289,40 +296,153 @@
   }
 
   .mobile-icon-box {
-    width: 32px; height: 32px; border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     background: rgba(254, 184, 255, 0.1);
     border: 1px solid rgba(254, 184, 255, 0.3);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--accent); flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    flex-shrink: 0;
   }
-  .mobile-icon-box svg { width: 16px; height: 16px; fill: currentColor; }
-  .mobile-text-group { display: flex; flex-direction: column; gap: 1px; }
-  .mobile-title { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 0.8rem; color: var(--text-main); text-transform: uppercase; }
-  .mobile-desc { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--text-muted); }
 
+  .mobile-icon-box svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  .mobile-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .mobile-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .mobile-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+  }
+
+  /* ESTADÍSTICAS ABAJO */
   .stats-container {
-    display: flex; justify-content: center; gap: 60px; width: 100%; margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    width: 100%;
+    margin-top: 10px;
   }
-  .stat-item { display: flex; flex-direction: column; align-items: center; }
-  .stat-value { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 2.8rem; line-height: 1.1; margin-bottom: 4px; }
-  .stat-value.online { color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.4); }
-  .stat-value.miembros { color: #60a5fa; text-shadow: 0 0 15px rgba(96, 165, 250, 0.4); }
-  .stat-value.activo { color: var(--accent); text-shadow: 0 0 20px var(--accent-glow); }
-  .stat-label { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.95rem; color: #a0a0ab; letter-spacing: 0.08em; text-transform: uppercase; }
 
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .stat-value.online {
+    color: #4ade80;
+    text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+  }
+
+  .stat-value.miembros {
+    color: #60a5fa;
+    text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+  }
+
+  .stat-value.activo {
+    color: var(--accent);
+    text-shadow: 0 0 20px var(--accent-glow);
+  }
+
+  .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #a0a0ab;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* REGLAS PARA TELÉFONOS */
   @media (max-width: 900px) {
-    .btn-adventure { display: none !important; }
-    .mobile-card { display: flex !important; }
-    .user-profile-badge { top: 15px; right: 15px; padding: 6px 12px 6px 6px; }
+    .btn-adventure {
+      display: none !important; 
+    }
+    .mobile-card {
+      display: flex !important; 
+    }
+    .hero {
+      height: 100vh;
+      justify-content: flex-start;
+      padding: 25px 15px;
+      overflow-y: auto;
+    }
+    .hero-content {
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 5px 0;
+    }
+    .top-buttons-container {
+      margin-bottom: 14px;
+    }
+    .badge-top {
+      margin-bottom: 14px;
+      padding: 7px 18px;
+      font-size: 0.85rem;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 11vw, 4rem);
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+    .stats-container {
+      gap: 25px;
+      margin-top: 5px;
+    }
+    .stat-value {
+      font-size: 2rem;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+    }
+    .user-profile-badge {
+      top: 15px; right: 15px; padding: 6px 12px 6px 6px;
+    }
     .user-avatar { width: 32px; height: 32px; }
     .user-name { font-size: 0.8rem; }
-    .hero { height: 100vh; justify-content: flex-start; padding: 25px 15px; overflow-y: auto; }
-    .hero-content { margin-top: auto; margin-bottom: auto; padding: 5px 0; }
   }
 
   @media (min-width: 901px) {
-    .btn-adventure { display: inline-flex !important; }
-    .mobile-card { display: none !important; }
+    .btn-adventure {
+      display: inline-flex !important; 
+    }
+    .mobile-card {
+      display: none !important; 
+    }
   }
 </style>
 </head>
@@ -372,7 +492,7 @@
       <p>
       Donde cada historia cobra vida y cada decisión marca la diferencia.<br><span style="color: #FEB8FF;">Tu nueva realidad comienza aquí.</span></p>
       
-      <a href="/auth/signin" class="btn-adventure" id="btnComenzar">
+      <a href="/login" class="btn-adventure" id="btnComenzar">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         Comenzar Aventura
         <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -406,18 +526,31 @@
   </div>
 
   <script>
-    // 1. Lógica para mostrar la tarjeta de perfil si hay datos de sesión guardados
+    // Función para leer la cookie de sesión enviada por el Worker
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
-      // Tu Worker de Cloudflare puede inyectar esto (ej: localStorage.setItem('discord_user', JSON.stringify({username, avatar})))
-      const userData = localStorage.getItem('discord_user');
+      const cookieData = getCookie('discord_user');
       
-      if (userData) {
+      if (cookieData) {
         try {
-          const user = JSON.parse(userData);
+          const user = JSON.parse(cookieData);
           if (user.username && user.avatar) {
+            // Pintamos la foto y el nombre en la esquina superior derecha
             document.getElementById('userNameTxt').textContent = user.username;
             document.getElementById('userAvatarImg').src = user.avatar;
             document.getElementById('userBadge').style.display = 'flex';
+
+            // Actualizamos el botón para indicar sesión activa
+            const btnComenzar = document.getElementById('btnComenzar');
+            btnComenzar.innerHTML = `
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Sesión Activa
+            `;
           }
         } catch (e) {
           console.error("Error al leer los datos de usuario", e);
@@ -425,11 +558,20 @@
       }
     });
 
-    // 2. Transición fluida al hacer clic en Comenzar Aventura
+    // Control del botón Comenzar Aventura
     const btnComenzar = document.getElementById('btnComenzar');
     const heroSection = document.getElementById('heroSection');
 
     btnComenzar.addEventListener('click', (e) => {
+      const cookieData = getCookie('discord_user');
+
+      // SI YA TIENE SESIÓN ACTIVA: Bloqueamos la acción para que no haga nada
+      if (cookieData) {
+        e.preventDefault();
+        return;
+      }
+
+      // SI NO TIENE SESIÓN: Ejecuta la animación de salida y va al login
       e.preventDefault(); 
       const destino = btnComenzar.getAttribute('href');
 
