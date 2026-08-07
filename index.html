@@ -682,5 +682,42 @@
     });
   </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const userBadge = document.getElementById("userBadge");
+    const userAvatarImg = document.getElementById("userAvatarImg");
+    const userNameTxt = document.getElementById("userNameTxt");
+    const btnLogout = document.getElementById("btnLogout");
+
+    try {
+        const response = await fetch("/api/me", {
+            credentials: "include"
+        });
+
+        if (!response.ok) return;
+
+        const data = await response.json();
+
+        if (!data.loggedIn || !data.user) return;
+
+        userAvatarImg.src = data.user.avatar;
+        userNameTxt.textContent = data.user.username;
+
+        userBadge.style.display = "flex";
+        btnLogout.style.display = "flex";
+
+    } catch (error) {
+        console.error("No se pudo comprobar la sesión:", error);
+    }
+
+    if (btnLogout) {
+        btnLogout.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = "/api/logout";
+        });
+    }
+});
+</script>
+
 </body>
 </html>
