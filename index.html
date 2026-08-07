@@ -603,11 +603,11 @@
           document.getElementById('statOnline').textContent = data.presence_count;
         }
 
-        // 2. Miembros totales del servidor
-        if (data.members) {
-          document.getElementById('statMiembros').textContent = data.members.length;
-        } else if (data.approximate_member_count) {
+        // 2. Miembros totales del servidor (Corregido para leer approximate_member_count del JSON principal)
+        if (data.approximate_member_count !== undefined) {
           document.getElementById('statMiembros').textContent = data.approximate_member_count;
+        } else if (data.members) {
+          document.getElementById('statMiembros').textContent = data.members.length;
         }
 
       } catch (error) {
