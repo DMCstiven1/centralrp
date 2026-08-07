@@ -85,11 +85,11 @@ export async function onRequest(context) {
   };
 
   return new Response(null, {
-    status: 302,
-    headers: {
-      Location: "/",
-      "Set-Cookie":
-        `discord_user=${encodeURIComponent(JSON.stringify(userData))}; Path=/; Secure; HttpOnly; SameSite=Lax; Max-Age=604800`
-    },
+  status: 302,
+  headers: {
+    Location: "/",
+    "Set-Cookie":
+      `discord_user=${encodeURIComponent(JSON.stringify(userData))}; Path=/; Secure; SameSite=Lax; Max-Age=604800`
+  },
   });
 }
