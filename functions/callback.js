@@ -61,7 +61,7 @@ export async function onRequest(context) {
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso Denegado • Central RP</title>
+    <title>Central RP</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/rg130IN.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
